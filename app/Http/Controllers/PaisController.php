@@ -14,7 +14,8 @@ class PaisController extends Controller
      */
     public function index()
     {
-        return view('Pais.index');
+        $paises = Pais::paginate(10);
+        return view('Pais.index',compact('paises'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PaisController extends Controller
      */
     public function create()
     {
-        //
+        return view('Pais.create');
     }
 
     /**

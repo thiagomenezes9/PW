@@ -44,7 +44,7 @@
                 {{--//--}}
 
                 <a href="#">
-                    <i class="fa fa-flag-o"></i>
+                    <i class="fa fa-flag"></i>
                     <span>Estados</span>
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}
                 </a>
