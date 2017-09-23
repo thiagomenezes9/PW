@@ -36,7 +36,7 @@
             <li class="{{ $activeContato or 'treeview' }}">
 
                 <a href="{{route('pais.index')}}">
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-globe"></i>
                     <span>Paises</span>
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}
                 </a>
@@ -44,17 +44,17 @@
                 {{--//--}}
 
                 <a href="#">
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-flag-o"></i>
                     <span>Estados</span>
-                    <i class="fa fa-angle-left pull-right"></i>
+                    {{--<i class="fa fa-angle-left pull-right"></i>--}}
                 </a>
 
                 {{--//fsdf--}}
 
                 <a href="#">
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-map"></i>
                     <span>Cidades</span>
-                    <i class="fa fa-angle-left pull-right"></i>
+                    {{--<i class="fa fa-angle-left pull-right"></i>--}}
                 </a>
 
                 {{--<ul class="treeview-menu">--}}
@@ -75,7 +75,7 @@
                 <a href="#">
                     <i class="fa fa-user"></i>
                     <span>Clientes</span>
-                    <i class="fa fa-angle-left pull-right"></i>
+                    {{--<i class="fa fa-angle-left pull-right"></i>--}}
                 </a>
 
                 {{--<ul class="treeview-menu">--}}
