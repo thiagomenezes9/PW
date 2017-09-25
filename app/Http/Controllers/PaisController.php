@@ -43,7 +43,7 @@ class PaisController extends Controller
 
 //        Session::flash('mensagem', 'Pais criado com sucesso!');
 
-        return view('Pais.index');
+        return redirect('pais');
     }
 
     /**
@@ -90,11 +90,14 @@ class PaisController extends Controller
     {
 
 
-        $pais->delete();
+
+        echo $pais;
+
+
 
 
       //  Session::flash('mensagem', 'Contato deletado com sucesso!');
 
-        return redirect('pais');
+        //return redirect('pais');
     }
 }

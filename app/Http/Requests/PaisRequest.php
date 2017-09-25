@@ -24,7 +24,7 @@ class PaisRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required|unique:contacts|max:255',
+            'nome' => 'required|unique:pais|max:255',
             'sigla' => 'required',
 
 

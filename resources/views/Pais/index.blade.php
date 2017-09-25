@@ -73,10 +73,12 @@
                                                     <div class="modal-footer">
 
                                                         <form id="formDelete{{ $p->id }}"
-                                                              action="{{route('pais.destroy',compact('p'))}}" method="POST">
+                                                              action="{{action('PaisController@destroy',$p)}}" method="POST">
 
                                                             {{ csrf_field() }}
-                                                            {{ method_field('DELETE') }}
+                                                            {{--{{ method_field('DELETE') }}--}}
+
+                                                            <input type="hidden" name="_method" value="DELETE">
 
                                                             <button class="btn btn-danger" type="submit">Excluir</button>
                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
