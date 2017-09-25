@@ -52,12 +52,12 @@
                                             Editar
                                         </a>
 
-                                        <a class="btn btn-small btn-danger" data-toggle="modal" href="#" >
+                                        <a class="btn btn-small btn-danger" data-toggle="modal" href="#myModal{{ $p->id }}" >
                                             <i class="fa fa-trash-o"></i>
                                             Excluir
                                         </a>
 
-                                        <div class="modal fade modal-danger" id="#" role="dialog">
+                                        <div class="modal fade modal-danger" id="myModal{{ $p->id }}" role="dialog">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
 
@@ -67,13 +67,13 @@
                                                     </div>
 
                                                     <div class="modal-body text-center">
-                                                        <p>Realmente Deseja excluir {{$c->nome}} ??</p>
+                                                        <p>Realmente Deseja excluir {{$p->nome}} ??</p>
                                                     </div>
 
                                                     <div class="modal-footer">
 
-                                                        <form id="formDelete{{ $c->id }}"
-                                                              action="#"
+                                                        <form id="formDelete{{ $p->id }}"
+                                                              action="{{action('PaisController@destroy',$p)}}"
                                                               method="post">
 
                                                             {{ csrf_field() }}

@@ -36,7 +36,13 @@ class PaisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        Pais::create($request->all());
+
+//        Session::flash('mensagem', 'Pais criado com sucesso!');
+
+        return view('Pais.index');
     }
 
     /**
@@ -81,6 +87,10 @@ class PaisController extends Controller
      */
     public function destroy(Pais $pais)
     {
-        //
+        $pais->delete();
+
+      //  Session::flash('mensagem', 'Contato deletado com sucesso!');
+
+        return view('Pais.index');
     }
 }
