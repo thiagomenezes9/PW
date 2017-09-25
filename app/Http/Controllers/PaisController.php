@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PaisRequest;
 use App\Pais;
 use Illuminate\Http\Request;
 
@@ -87,10 +88,13 @@ class PaisController extends Controller
      */
     public function destroy(Pais $pais)
     {
+
+
         $pais->delete();
+
 
       //  Session::flash('mensagem', 'Contato deletado com sucesso!');
 
-        return view('Pais.index');
+        return redirect('pais');
     }
 }

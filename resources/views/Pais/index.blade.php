@@ -9,7 +9,7 @@
 @stop
 
 @section('contentheader_description')
-    Descrição
+    Lista dos Paises
 @stop
 
 
@@ -31,16 +31,16 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <td>Nome</td>
-                                <td>Ações</td>
+                                <td class="col-md-6"><strong>Nome</strong></td>
+                                <td align="center"><strong>Ações</strong></td>
                             </tr>
                             </thead>
 
 
                             <tbody>
                             @foreach($paises as $p)
-                                <tr>
-                                    <td>{{ $p->nome }}</td>
+                                <tr align="center">
+                                    <td align="left">{{ $p->nome }}</td>
                                     <td>
                                         <a class="btn btn-small btn-info" href="#" >
                                             <i class="fa fa-search-plus"></i>
@@ -73,10 +73,10 @@
                                                     <div class="modal-footer">
 
                                                         <form id="formDelete{{ $p->id }}"
-                                                              action="{{action('PaisController@destroy',$p)}}"
-                                                              method="post">
+                                                              action="{{route('pais.destroy',compact('p'))}}" method="POST">
 
                                                             {{ csrf_field() }}
+                                                            {{ method_field('DELETE') }}
 
                                                             <button class="btn btn-danger" type="submit">Excluir</button>
                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -99,6 +99,10 @@
                             @endforeach
                             </tbody>
                         </table>
+
+                        <div class="text-center">
+                            {!! $paises->links() !!}
+                        </div>
 
 
                     </div>
