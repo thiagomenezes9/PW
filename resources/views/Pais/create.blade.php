@@ -80,7 +80,7 @@
 
                             <div class="form-group">
                                 <label for="bandeira" class="col-sm-2 control-label">Bandeira</label>
-                                <input name="bandeira" type="file" class="form-control input-lg"
+                                <input name="bandeira" type="file" class="form-control-file"
                                        id="bandeira" autofocus>
                             </div>
 

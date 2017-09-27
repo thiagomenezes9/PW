@@ -73,7 +73,7 @@
                                                     <div class="modal-footer">
 
                                                         <form id="formDelete{{ $p->id }}"
-                                                              action="{{action('PaisController@destroy',$p)}}" method="POST">
+                                                              action="{{action('PaisController@destroy',$p->id)}}" method="POST">
 
                                                             {{ csrf_field() }}
                                                             {{--{{ method_field('DELETE') }}--}}

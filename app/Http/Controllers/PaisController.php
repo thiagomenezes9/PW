@@ -35,11 +35,22 @@ class PaisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PaisRequest $request)
     {
 
 
-        Pais::create($request->all());
+        $imagem = $_FILES[$request->bandeira];
+
+        $pais = new Pais();
+
+        $pais->bandeira = file_get_contents($imagem);
+        $pais->nome = $request->nome;
+        $pais->sigla = $request->sigla;
+
+        Pais::create($pais);
+
+
+//        Pais::create($request->all());
 
 //        Session::flash('mensagem', 'Pais criado com sucesso!');
 
@@ -75,7 +86,7 @@ class PaisController extends Controller
      * @param  \App\Pais  $pais
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pais $pais)
+    public function update(PaisRequest $request, Pais $pais)
     {
         //
     }
@@ -86,18 +97,18 @@ class PaisController extends Controller
      * @param  \App\Pais  $pais
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pais $pais)
+    public function destroy($id)
     {
 
 
 
-        echo $pais;
+       $pais = Pais::findOrFail($id);
 
-
+        $pais->delete();
 
 
       //  Session::flash('mensagem', 'Contato deletado com sucesso!');
 
-        //return redirect('pais');
+        return redirect('pais');
     }
 }

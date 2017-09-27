@@ -78,20 +78,15 @@
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}
                 </a>
 
-                {{--<ul class="treeview-menu">--}}
-                    {{--<li class="{{ $menuConItem1 or '' }}">--}}
-                        {{--<a href="#">--}}
-                            {{--<i class='fa fa-user-plus'></i>--}}
-                            {{--<span>Novo Cliente</span>--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                    {{--<li class="{{ $menuConItem2 or '' }}">--}}
-                        {{--<a href="#">--}}
-                            {{--<i class='fa fa-book'></i>--}}
-                            {{--<span>Listar Todos Clientes</span>--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                {{--</ul>--}}
+
+
+                <a href="#">
+                    <i class="fa fa-envelope"></i>
+                    <span>Endereço</span>
+                    {{--<i class="fa fa-angle-left pull-right"></i>--}}
+                </a>
+
+
 
                
             </li>
