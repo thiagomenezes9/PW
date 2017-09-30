@@ -43,7 +43,7 @@
 
                 {{--//--}}
 
-                <a href="#">
+                <a href="{{route('estados.index')}}">
                     <i class="fa fa-flag"></i>
                     <span>Estados</span>
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}

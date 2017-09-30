@@ -9,7 +9,7 @@ class Estado extends Model
     protected $fillable = ['nome','sigla','idPais'];
 
     public function pais(){
-        return $this->belongsTo('App\Pais');
+        return $this->belongsTo('app\Pais');
     }
 
 }

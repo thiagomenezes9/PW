@@ -12,6 +12,12 @@ class Pais extends Model
 
 
 
+    public function estados()
+    {
+        return $this->hasMany('app\Estado');
+    }
+
+
 }
 
 

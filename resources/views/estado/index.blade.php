@@ -23,7 +23,7 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <h3 class="box-title">Estados</h3>
-                        <div align="right"><a href="{{route('estado.create')}}" class="btn btn-success">Novo</a></div>
+                        <div align="right"><a href="{{route('estados.create')}}" class="btn btn-success">Novo</a></div>
                     </div>
 
                     <div class="box-body">
@@ -42,12 +42,12 @@
                                 <tr align="center">
                                     <td align="left">{{ $e->nome }}</td>
                                     <td>
-                                        <a class="btn btn-small btn-info" href="{{route('estado.show',$e->id)}}" >
+                                        <a class="btn btn-small btn-info" href="{{route('estados.show',$e->id)}}" >
                                             <i class="fa fa-search-plus"></i>
                                             Detalhes
                                         </a>
 
-                                        <a class="btn btn-small btn-warning" href="{{route('estado.edit',$e->id)}}" >
+                                        <a class="btn btn-small btn-warning" href="{{route('estados.edit',$e->id)}}" >
                                             <i class="fa fa-pencil-square-o"></i>
                                             Editar
                                         </a>
@@ -73,7 +73,7 @@
                                                     <div class="modal-footer">
 
                                                         <form id="formDelete{{ $e->id }}"
-                                                              action="{{action('EstadoController@destroy',$e->id)}}" method="POST">
+                                                              action="{{action('EstadosController@destroy',$e->id)}}" method="POST">
 
                                                             {{ csrf_field() }}
                                                             {{--{{ method_field('DELETE') }}--}}
