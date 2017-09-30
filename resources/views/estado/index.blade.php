@@ -31,7 +31,8 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <td class="col-md-6"><strong>Nome</strong></td>
+                                <td class="col-md-5"><strong>Nome</strong></td>
+                                <td class="col-md-4"><strong>Pais</strong></td>
                                 <td align="center"><strong>Ações</strong></td>
                             </tr>
                             </thead>
@@ -41,6 +42,7 @@
                             @foreach($estados as $e)
                                 <tr align="center">
                                     <td align="left">{{ $e->nome }}</td>
+                                    <td align="center">{{$e->pais->nome}}</td>
                                     <td>
                                         <a class="btn btn-small btn-info" href="{{route('estados.show',$e->id)}}" >
                                             <i class="fa fa-search-plus"></i>

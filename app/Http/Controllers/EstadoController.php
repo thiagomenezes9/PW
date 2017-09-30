@@ -51,7 +51,7 @@ class EstadoController extends Controller
 
        $estado->pais()->associate($pais);
 
-       $estado->save();
+       $estado->saveOrFail();
 
 
         return redirect('estados');

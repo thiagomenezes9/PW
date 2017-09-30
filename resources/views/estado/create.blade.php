@@ -66,7 +66,7 @@
                                 <label for="nome" class="col-sm-2 control-label" >Nome</label>
                                 <div class="col-sm-10">
                                     <input name="nome" value="{{ old('nome') }}" type="text" class="form-control input-lg"
-                                           id="nome" placeholder="Nome do Pais" autofocus>
+                                           id="nome" placeholder="Nome do Estado" autofocus>
                                 </div>
                             </div>
 
@@ -75,7 +75,7 @@
                                 <label for="sigla" class="col-sm-2 control-label" >Sigla</label>
                                 <div class="col-sm-10">
                                     <input name="sigla" value="{{ old('sigla') }}" type="text" class="form-control input-lg"
-                                           id="sigla" placeholder="Sigla do Pais" autofocus>
+                                           id="sigla" placeholder="Sigla do Estado" autofocus>
                                 </div>
                             </div>
 
@@ -84,7 +84,7 @@
                                 <div class="col-sm-10">
                                     <select name="pais" id="pais" class="form-control">
                                       @foreach($pais as $p)
-                                            <option value="{{$p['id']}}">{{$p->nome}}</option>
+                                            <option value="{{$p->id}}">{{$p->nome}}</option>
                                         @endforeach
                                     </select>
 
