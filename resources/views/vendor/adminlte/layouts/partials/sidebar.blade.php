@@ -51,7 +51,7 @@
 
                 {{--//fsdf--}}
 
-                <a href="#">
+                <a href="{{route('cidades.index')}}">
                     <i class="fa fa-map"></i>
                     <span>Cidades</span>
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}
