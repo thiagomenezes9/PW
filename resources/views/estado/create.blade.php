@@ -80,9 +80,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="bandeira" class="col-sm-2 control-label">Pais</label>
-                                <input name="bandeira" type="file" class="form-control-file"
-                                       id="bandeira" autofocus>
+                                <label for="pais" class="col-sm-2 control-label">Pais</label>
+                                <div class="col-sm-10">
+                                    <select name="pais" id="pais" class="form-control">
+                                      @foreach($pais as $p)
+                                            <option value="{{$p['id']}}">{{$p->nome}}</option>
+                                        @endforeach
+                                    </select>
+
+
+
+                                </div>
                             </div>
 
 

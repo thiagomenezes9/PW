@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Estado;
 use App\Http\Requests\EstadoRequest;
+use App\Pais;
 use Illuminate\Http\Request;
 
 class EstadoController extends Controller
@@ -26,7 +27,10 @@ class EstadoController extends Controller
      */
     public function create()
     {
-        return view('estado.create');
+        $pais = Pais::all();
+
+
+        return view('estado.create',compact('pais'));
     }
 
     /**
@@ -37,10 +41,20 @@ class EstadoController extends Controller
      */
     public function store(EstadoRequest $request)
     {
-        Pais::create($request->all());
+
+       $estado = new Estado();
+
+       $estado->nome = $request->nome;
+       $estado->sigla = $request->sigla;
+
+       $pais = Pais::findOrFail($request->pais);
+
+       $estado->pais()->associate($pais);
+
+       $estado->save();
 
 
-        return redirect('pais');
+        return redirect('estados');
     }
 
     /**
