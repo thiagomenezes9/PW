@@ -42,7 +42,7 @@ class EstadoController extends Controller
     public function store(EstadoRequest $request)
     {
 
-       $estado = new Estado();
+       $estado = new Estado;
 
        $estado->nome = $request->nome;
        $estado->sigla = $request->sigla;
@@ -80,7 +80,9 @@ class EstadoController extends Controller
     {
         $estado = Estado::findOrFail($id);
 
-        return view('estado.edit',compact('estado'));
+        $pais = Pais::all();
+
+        return view('estado.edit',compact('estado','pais'));
     }
 
     /**
@@ -90,19 +92,23 @@ class EstadoController extends Controller
      * @param  \App\Estado  $estado
      * @return \Illuminate\Http\Response
      */
-    public function update(EstadoRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $estado = Estado::findOrFail($id);
 
 
+        $pais = Pais::findOrFail($request->pais);
+
+        $estado->pais()->associate($pais);
 
 
+        $estado->update($request->all());
 
 
         $estado->save();
 
 
-        return redirect('estado');
+        return redirect('estados');
     }
 
     /**
@@ -120,6 +126,6 @@ class EstadoController extends Controller
 
         //  Session::flash('mensagem', 'Contato deletado com sucesso!');
 
-        return redirect('estado');
+        return redirect('estados');
     }
 }

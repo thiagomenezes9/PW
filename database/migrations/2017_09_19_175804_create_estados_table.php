@@ -17,8 +17,8 @@ class CreateEstadosTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('sigla');
-            $table->integer('idPais')->unsigned();
-            $table->foreign('idPais')->references('id')->on('pais')->onDelete('cascade');
+            $table->integer('pais_id')->unsigned();
+            $table->foreign('pais_id')->references('id')->on('pais')->onDelete('cascade');
             $table->timestamps();
         });
     }

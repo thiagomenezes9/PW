@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-    Estados
+    Cidades
 @stop
 
 @section('contentheader_title')
@@ -9,7 +9,7 @@
 @stop
 
 @section('contentheader_description')
-    Lista dos Estados
+    Lista das Cidades
 @stop
 
 
@@ -22,8 +22,8 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Estados</h3>
-                        <div align="right"><a href="{{route('estados.create')}}" class="btn btn-success">Novo</a></div>
+                        <h3 class="box-title">Cidades</h3>
+                        <div align="right"><a href="{{route('cidades.create')}}" class="btn btn-success">Novo</a></div>
                     </div>
 
                     <div class="box-body">
@@ -32,34 +32,34 @@
                             <thead>
                             <tr>
                                 <td class="col-md-5"><strong>Nome</strong></td>
-                                <td class="col-md-3"><strong>Pais</strong></td>
+                                <td class="col-md-3"><strong>Estado</strong></td>
                                 <td align="center"><strong>Ações</strong></td>
                             </tr>
                             </thead>
 
 
                             <tbody>
-                            @foreach($estados as $e)
+                            @foreach($cidades as $c)
                                 <tr align="center">
-                                    <td align="left">{{ $e->nome }}</td>
-                                    <td align="left">{{$e->pais->nome}}</td>
+                                    <td align="left">{{ $c->nome }}</td>
+                                    <td align="left">{{$c->estado->nome}}</td>
                                     <td>
-                                        <a class="btn btn-small btn-info" href="{{route('estados.show',$e->id)}}" >
+                                        <a class="btn btn-small btn-info" href="{{route('cidades.show',$c->id)}}" >
                                             <i class="fa fa-search-plus"></i>
                                             Detalhes
                                         </a>
 
-                                        <a class="btn btn-small btn-warning" href="{{route('estados.edit',$e->id)}}" >
+                                        <a class="btn btn-small btn-warning" href="{{route('cidades.edit',$c->id)}}" >
                                             <i class="fa fa-pencil-square-o"></i>
                                             Editar
                                         </a>
 
-                                        <a class="btn btn-small btn-danger" data-toggle="modal" href="#myModal{{ $e->id }}" >
+                                        <a class="btn btn-small btn-danger" data-toggle="modal" href="#myModal{{ $c->id }}" >
                                             <i class="fa fa-trash-o"></i>
                                             Excluir
                                         </a>
 
-                                        <div class="modal fade modal-danger" id="myModal{{ $e->id }}" role="dialog">
+                                        <div class="modal fade modal-danger" id="myModal{{ $c->id }}" role="dialog">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
 
@@ -69,13 +69,13 @@
                                                     </div>
 
                                                     <div class="modal-body text-center">
-                                                        <p>Realmente Deseja excluir {{$e->nome}} ??</p>
+                                                        <p>Realmente Deseja excluir {{$c->nome}} ??</p>
                                                     </div>
 
                                                     <div class="modal-footer">
 
-                                                        <form id="formDelete{{ $e->id }}"
-                                                              action="{{action('EstadoController@destroy',$e->id)}}" method="POST">
+                                                        <form id="formDelete{{ $c->id }}"
+                                                              action="{{action('CidadeController@destroy',$c->id)}}" method="POST">
 
                                                             {{ csrf_field() }}
                                                             {{--{{ method_field('DELETE') }}--}}
@@ -105,7 +105,7 @@
                         </table>
 
                         <div class="text-center">
-                            {!! $estados->links() !!}
+                            {!! $cidades->links() !!}
                         </div>
 
 
