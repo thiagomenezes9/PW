@@ -48,11 +48,12 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <h3 class="box-title">Novo Pais</h3>
+                        <div align="right"><a href="{{route('pais.index')}}" class="btn btn-info">Voltar</a></div>
                     </div>
 
                     <div class="box-body">
 
-                        <form class="form-horizontal" action="{{action('PaisController@store')}}" method="post">
+                        <form class="form-horizontal" action="{{action('PaisController@store')}}" method="post" enctype="multipart/form-data">
 
                             <!-- 'nome', 'sigla',
                                 'bandeira' -->

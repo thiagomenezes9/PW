@@ -9,7 +9,7 @@
 @stop
 
 @section('contentheader_description')
-    Lista dos Paises
+    Lista dos Estados
 @stop
 
 
@@ -22,8 +22,8 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Paises</h3>
-                        <div align="right"><a href="{{route('pais.create')}}" class="btn btn-success">Novo</a></div>
+                        <h3 class="box-title">Estados</h3>
+                        <div align="right"><a href="{{route('estado.create')}}" class="btn btn-success">Novo</a></div>
                     </div>
 
                     <div class="box-body">
@@ -38,26 +38,26 @@
 
 
                             <tbody>
-                            @foreach($paises as $p)
+                            @foreach($estados as $e)
                                 <tr align="center">
-                                    <td align="left">{{ $p->nome }}</td>
+                                    <td align="left">{{ $e->nome }}</td>
                                     <td>
-                                        <a class="btn btn-small btn-info" href="{{route('pais.show',$p->id)}}" >
+                                        <a class="btn btn-small btn-info" href="{{route('estado.show',$e->id)}}" >
                                             <i class="fa fa-search-plus"></i>
                                             Detalhes
                                         </a>
 
-                                        <a class="btn btn-small btn-warning" href="{{route('pais.edit',$p->id)}}" >
+                                        <a class="btn btn-small btn-warning" href="{{route('estado.edit',$e->id)}}" >
                                             <i class="fa fa-pencil-square-o"></i>
                                             Editar
                                         </a>
 
-                                        <a class="btn btn-small btn-danger" data-toggle="modal" href="#myModal{{ $p->id }}" >
+                                        <a class="btn btn-small btn-danger" data-toggle="modal" href="#myModal{{ $e->id }}" >
                                             <i class="fa fa-trash-o"></i>
                                             Excluir
                                         </a>
 
-                                        <div class="modal fade modal-danger" id="myModal{{ $p->id }}" role="dialog">
+                                        <div class="modal fade modal-danger" id="myModal{{ $e->id }}" role="dialog">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
 
@@ -67,13 +67,13 @@
                                                     </div>
 
                                                     <div class="modal-body text-center">
-                                                        <p>Realmente Deseja excluir {{$p->nome}} ??</p>
+                                                        <p>Realmente Deseja excluir {{$e->nome}} ??</p>
                                                     </div>
 
                                                     <div class="modal-footer">
 
-                                                        <form id="formDelete{{ $p->id }}"
-                                                              action="{{action('PaisController@destroy',$p->id)}}" method="POST">
+                                                        <form id="formDelete{{ $e->id }}"
+                                                              action="{{action('EstadoController@destroy',$e->id)}}" method="POST">
 
                                                             {{ csrf_field() }}
                                                             {{--{{ method_field('DELETE') }}--}}
@@ -103,7 +103,7 @@
                         </table>
 
                         <div class="text-center">
-                            {!! $paises->links() !!}
+                            {!! $estados->links() !!}
                         </div>
 
 

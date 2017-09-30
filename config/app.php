@@ -180,6 +180,9 @@ return [
 
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
 
+
+        Intervention\Image\ImageServiceProvider::class,
+
     ],
 
     /*
@@ -229,6 +232,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

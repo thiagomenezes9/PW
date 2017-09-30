@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PaisRequest;
 use App\Pais;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\Facades\Image;
 
 class PaisController extends Controller
 {
@@ -39,20 +41,13 @@ class PaisController extends Controller
     {
 
 
-        $imagem = $_FILES[$request->bandeira];
-
-        $pais = new Pais();
-
-        $pais->bandeira = file_get_contents($imagem);
-        $pais->nome = $request->nome;
-        $pais->sigla = $request->sigla;
-
-        Pais::create($pais);
+        $arquivo = Input::file('bandeira');
+        $form = $request->all();
+        $form['bandeira'] = (string) Image::make($arquivo)->encode('data-url');
 
 
-//        Pais::create($request->all());
+        Pais::create($form);
 
-//        Session::flash('mensagem', 'Pais criado com sucesso!');
 
         return redirect('pais');
     }
@@ -63,9 +58,13 @@ class PaisController extends Controller
      * @param  \App\Pais  $pais
      * @return \Illuminate\Http\Response
      */
-    public function show(Pais $pais)
+    public function show($id)
     {
-        //
+
+
+        $pais = Pais::findOrFail($id);
+
+        return view('Pais.show',compact('pais'));
     }
 
     /**
@@ -74,9 +73,11 @@ class PaisController extends Controller
      * @param  \App\Pais  $pais
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pais $pais)
+    public function edit($id)
     {
-        //
+        $pais = Pais::findOrFail($id);
+
+        return view('Pais.edit',compact('pais'));
     }
 
     /**
@@ -86,9 +87,24 @@ class PaisController extends Controller
      * @param  \App\Pais  $pais
      * @return \Illuminate\Http\Response
      */
-    public function update(PaisRequest $request, Pais $pais)
+    public function update(PaisRequest $request, $id)
     {
-        //
+        $pais = Pais::findOrFail($id);
+
+        $pais->nome = $request->nome;
+        $pais->sigla = $request->sigla;
+
+        if(isset($request->bandeira)){
+            $arquivo = Input::file('bandeira');
+            $pais['bandeira'] = (string) Image::make($arquivo)->encode('data-url');
+        }
+
+
+        $pais->save();
+
+
+        return redirect('pais');
+
     }
 
     /**

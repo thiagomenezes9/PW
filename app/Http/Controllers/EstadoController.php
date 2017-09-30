@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Estado;
+use App\Http\Requests\EstadoRequest;
 use Illuminate\Http\Request;
 
 class EstadoController extends Controller
@@ -14,7 +15,8 @@ class EstadoController extends Controller
      */
     public function index()
     {
-        //
+        $estados = Estado::paginate(10);
+        return view('estado.index',compact('estados'));
     }
 
     /**
@@ -24,7 +26,7 @@ class EstadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('estado.create');
     }
 
     /**
@@ -33,9 +35,12 @@ class EstadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EstadoRequest $request)
     {
-        //
+        Pais::create($request->all());
+
+
+        return redirect('pais');
     }
 
     /**
@@ -44,9 +49,11 @@ class EstadoController extends Controller
      * @param  \App\Estado  $estado
      * @return \Illuminate\Http\Response
      */
-    public function show(Estado $estado)
+    public function show($id)
     {
-        //
+        $estado = Estado::findOrFail($id);
+
+        return view('estado.show',compact('estado'));
     }
 
     /**
@@ -55,9 +62,11 @@ class EstadoController extends Controller
      * @param  \App\Estado  $estado
      * @return \Illuminate\Http\Response
      */
-    public function edit(Estado $estado)
+    public function edit($id)
     {
-        //
+        $estado = Estado::findOrFail($id);
+
+        return view('estado.edit',compact('estado'));
     }
 
     /**
@@ -67,9 +76,19 @@ class EstadoController extends Controller
      * @param  \App\Estado  $estado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Estado $estado)
+    public function update(EstadoRequest $request, $id)
     {
-        //
+        $estado = Estado::findOrFail($id);
+
+
+
+
+
+
+        $estado->save();
+
+
+        return redirect('estado');
     }
 
     /**
@@ -78,8 +97,15 @@ class EstadoController extends Controller
      * @param  \App\Estado  $estado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Estado $estado)
+    public function destroy($id)
     {
-        //
+        $estado = Estado::findOrFail($id);
+
+        $estado->delete();
+
+
+        //  Session::flash('mensagem', 'Contato deletado com sucesso!');
+
+        return redirect('estado');
     }
 }
