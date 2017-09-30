@@ -49,13 +49,13 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <h3 class="box-title">Edição da cidade de {{$cidade->nome}}</h3>
-                        <div align="right"><a href="{{route('cidade.index')}}" class="btn btn-info">Voltar</a></div>
+                        <div align="right"><a href="{{route('cidades.index')}}" class="btn btn-info">Voltar</a></div>
                         {{--<div align="right"><a href="{{route('pais.create')}}" class="btn btn-success">Novo</a></div>--}}
                     </div>
 
                     <div class="box-body">
 
-                        <form class="form-horizontal" action="{{route('estados.update',$estado->id)}}" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{route('cidades.update',$cidade->id)}}" method="post" enctype="multipart/form-data">
 
                             <input type="hidden" name="_method" value="PUT">
 
@@ -66,8 +66,8 @@
                             <div class="form-group">
                                 <label for="nome" class="col-sm-2 control-label" >Nome</label>
                                 <div class="col-sm-10">
-                                    <input name="nome" value="{{ $estado->nome }}" type="text" class="form-control input-lg"
-                                           id="nome" placeholder="Nome do Estado" autofocus>
+                                    <input name="nome" value="{{ $cidade->nome }}" type="text" class="form-control input-lg"
+                                           id="nome" placeholder="Nome da cidade" autofocus>
                                 </div>
                             </div>
 
@@ -75,17 +75,17 @@
                             <div class="form-group">
                                 <label for="sigla" class="col-sm-2 control-label" >Sigla</label>
                                 <div class="col-sm-10">
-                                    <input name="sigla" value="{{$estado->sigla}}" type="text" class="form-control input-lg"
-                                           id="sigla" placeholder="Sigla do Estado" autofocus>
+                                    <input name="sigla" value="{{$cidade->sigla}}" type="text" class="form-control input-lg"
+                                           id="sigla" placeholder="Sigla da cidade" autofocus>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="pais" class="col-sm-2 control-label">Pais</label>
+                                <label for="pais" class="col-sm-2 control-label">Estado</label>
                                 <div class="col-sm-10">
-                                    <select name="pais" id="pais" class="form-control">
-                                        @foreach($pais as $p)
-                                            <option value="{{$p->id}}" {{ $p->id === (isset($estado->idPais) ? $estado->idPais : '' ) ? 'selected' : '' }}>{{$p->nome}}</option>
+                                    <select name="estado" id="estado" class="form-control">
+                                        @foreach($estado as $e)
+                                            <option value="{{$e->id}}" {{ $e->id === (isset($cidade->estado_id) ? $cidade->estado_id : '' ) ? 'selected' : '' }}>{{$e->nome}}</option>
                                         @endforeach
                                     </select>
 

@@ -85,7 +85,7 @@
                                 <div class="col-sm-10">
                                     <select name="pais" id="pais" class="form-control">
                                         @foreach($pais as $p)
-                                            <option value="{{$p->id}}" {{ $p->id === (isset($estado->idPais) ? $estado->idPais : '' ) ? 'selected' : '' }}>{{$p->nome}}</option>
+                                            <option value="{{$p->id}}" {{ $p->id === (isset($estado->pais_id) ? $estado->pais_id : '' ) ? 'selected' : '' }}>{{$p->nome}}</option>
                                         @endforeach
                                     </select>
 

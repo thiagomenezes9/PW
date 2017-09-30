@@ -33,7 +33,7 @@
 
                         <p><strong><h2>Nome : {{$cidade->nome}}</h2></strong></p><br>
                         <p><strong>Sigla : {{$cidade->sigla}}</strong></p><br>
-                        <p><strong>Estado : {{$cidade->pais->nome}}</strong></p><br>
+                        <p><strong>Estado : {{$cidade->estado->nome}}</strong></p><br>
 
 
 

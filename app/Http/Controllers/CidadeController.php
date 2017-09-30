@@ -16,7 +16,7 @@ class CidadeController extends Controller
     public function index()
     {
         $cidades = Cidade::paginate(10);
-        return view('cidade.index',compact('cidades'));
+        return view('Cidade.index',compact('cidades'));
     }
 
     /**
@@ -26,10 +26,10 @@ class CidadeController extends Controller
      */
     public function create()
     {
-        $estados = Estado::all();
+        $estado = Estado::all();
 
 
-        return view('cidade.create',compact('estados'));
+        return view('Cidade.create',compact('estado'));
     }
 
     /**
@@ -65,7 +65,7 @@ class CidadeController extends Controller
     {
         $cidade = Cidade::findOrFail($id);
 
-        return view('cidade.show',compact('cidade'));
+        return view('Cidade.show',compact('cidade'));
     }
 
     /**
@@ -80,7 +80,7 @@ class CidadeController extends Controller
 
         $estado = Estado::all();
 
-        return view('cidade.edit',compact('cidade','estado'));
+        return view('Cidade.edit',compact('cidade','estado'));
     }
 
     /**
