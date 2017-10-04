@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Cliente;
+use App\Http\Requests\ClienteRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -14,7 +16,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = cliente::paginate(10);
+        return view('Cliente.index',compact('clientes'));
     }
 
     /**
@@ -24,7 +27,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('Cliente.create');
     }
 
     /**
@@ -33,9 +36,27 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
-        //
+
+
+//        ['nome','dtnasc','email','sexo','cpf','rg']
+//
+        $cliente = new Cliente;
+        $cliente->nome = $request->nome;
+        $cliente->dtnasc = Carbon::createFromFormat('d/m/Y',$request->dtnasc);
+        $cliente->email = $request->email;
+        $cliente->sexo = $request->sexo;
+        $cliente->cpf = $request->cpf;
+        $cliente->rg = $request->rg;
+
+        $cliente->save();
+
+
+
+//        Session::flash('mensagem', 'Contato criado com sucesso!');
+
+        return redirect('clientes');
     }
 
     /**
@@ -44,9 +65,11 @@ class ClienteController extends Controller
      * @param  \App\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function show(Cliente $cliente)
+    public function show($id)
     {
-        //
+        $cliente = Cliente::findOrFail($id);
+
+        return view('Cliente.show',compact('cliente'));
     }
 
     /**
@@ -55,9 +78,11 @@ class ClienteController extends Controller
      * @param  \App\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cliente $cliente)
+    public function edit($id)
     {
-        //
+        $cliente = Cliente::findOrFail($id);
+
+        return view('Cliente.edit',compact('cliente'));
     }
 
     /**
@@ -67,9 +92,25 @@ class ClienteController extends Controller
      * @param  \App\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(Request $request, $id)
     {
-        //
+        $cliente = Cliente::find($id);
+
+        $cliente->nome = $request->nome;
+        $cliente->dtnasc = Carbon::createFromFormat('d/m/Y',$request->dtnasc);
+        $cliente->email = $request->email;
+        $cliente->sexo = $request->sexo;
+        $cliente->cpf = $request->cpf;
+        $cliente->rg = $request->rg;
+
+        $cliente->save();
+
+//        Session::flash('mensagem', 'Contato atualizado com sucesso!');
+
+
+
+        return redirect('clientes');
+
     }
 
     /**
@@ -78,8 +119,15 @@ class ClienteController extends Controller
      * @param  \App\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cliente $cliente)
+    public function destroy($id)
     {
-        //
+        $cliente = Cliente::findOrFail($id);
+
+        $cliente->delete();
+
+
+        //  Session::flash('mensagem', 'Contato deletado com sucesso!');
+
+        return redirect('clientes');
     }
 }

@@ -57,22 +57,9 @@
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}
                 </a>
 
-                {{--<ul class="treeview-menu">--}}
-                    {{--<li class="{{ $menuConItem1 or '' }}">--}}
-                        {{--<a href="#">--}}
-                            {{--<i class='fa fa-user-plus'></i>--}}
-                            {{--<span>Nova Cidade</span>--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                    {{--<li class="{{ $menuConItem2 or '' }}">--}}
-                        {{--<a href="#">--}}
-                            {{--<i class='fa fa-book'></i>--}}
-                            {{--<span>Listar Cidades</span>--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                {{--</ul>--}}
 
-                <a href="#">
+
+                <a href="{{route('clientes.index')}}">
                     <i class="fa fa-user"></i>
                     <span>Clientes</span>
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}
@@ -80,11 +67,11 @@
 
 
 
-                <a href="#">
-                    <i class="fa fa-envelope"></i>
-                    <span>Endereço</span>
+                {{--<a href="#">--}}
+                    {{--<i class="fa fa-envelope"></i>--}}
+                    {{--<span>Endereço</span>--}}
                     {{--<i class="fa fa-angle-left pull-right"></i>--}}
-                </a>
+                {{--</a>--}}
 
 
 

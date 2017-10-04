@@ -45,15 +45,10 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><b>adminlte-laravel</b></a>
+                <a class="navbar-brand" href="#"><b>ProgWEBIII</b></a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#home" class="smoothScroll">{{ trans('adminlte_lang::message.home') }}</a></li>
-                    <li><a href="#desc" class="smoothScroll">{{ trans('adminlte_lang::message.description') }}</a></li>
-                    <li><a href="#showcase" class="smoothScroll">{{ trans('adminlte_lang::message.showcase') }}</a></li>
-                    <li><a href="#contact" class="smoothScroll">{{ trans('adminlte_lang::message.contact') }}</a></li>
-                </ul>
+
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">{{ trans('adminlte_lang::message.login') }}</a></li>
@@ -67,15 +62,19 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     </div>
 
 
-    <section id="home" name="home">
-        <div id="headerwrap">
-            <div class="container">
-                <div class="row centered">
 
-                </div>
-            </div> <!--/ .container -->
-        </div><!--/ #headerwrap -->
-    </section>
+
+
+
+    {{--<section id="home" name="home">--}}
+        {{--<div id="headerwrap">--}}
+            {{--<div class="container">--}}
+                {{--<div class="row centered">--}}
+                    {{----}}
+                {{--</div>--}}
+            {{--</div> <!--/ .container -->--}}
+        {{--</div><!--/ #headerwrap -->--}}
+    {{--</section>--}}
 
     <section id="desc" name="desc">
         <!-- INTRO WRAP -->
@@ -98,25 +97,25 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <section id="showcase" name="showcase">
         <div id="showcase">
             <div class="container">
-
+                <h1><p>Bem-Vindo ao projeto de PWIII</p></h1><br>
             </div><!-- /container -->
         </div>
     </section>
 
-    <section id="contact" name="contact">
-        <div id="footerwrap">
-            <div class="container">
+    {{--<section id="contact" name="contact">--}}
+        {{--<div id="footerwrap">--}}
+            {{--<div class="container">--}}
 
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div id="c">
-            <div class="container">
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</section>--}}
+    {{--<footer>--}}
+        {{--<div id="c">--}}
+            {{--<div class="container">--}}
 
-            </div>
-        </div>
-    </footer>
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</footer>--}}
 
 </div>
 
