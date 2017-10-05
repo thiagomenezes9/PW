@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-    Clientes
+    Endereço
 @stop
 
 @section('contentheader_title')
@@ -9,7 +9,7 @@
 @stop
 
 @section('contentheader_description')
-    Novo Cliente
+    Novo Endereço
 @stop
 
 
@@ -47,78 +47,80 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Novo Cliente</h3>
-                        <div align="right"><a href="{{route('clientes.index')}}" class="btn btn-info">Voltar</a></div>
+                        <h3 class="box-title">Novo Endereço do {{$cliente->nome}}</h3>
+                        <div align="right"><a href="#" class="btn btn-info">Voltar</a></div>
                     </div>
 
                     <div class="box-body">
 
-                        <form class="form-horizontal" action="{{action('ClienteController@store')}}" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{action('EnderecoController@store')}}" method="post" enctype="multipart/form-data">
 
-                            <!-- ['nome','dtnasc','email','sexo','cpf','rg'] -->
+
 
                             <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
 
 
+                            <input type="hidden" name="cliente_id" value="{{$cliente->id}}"/>
+
+
+
+
+                            <p>Cidade</p>
 
                             <div class="form-group">
-                                <label for="nome" class="col-sm-2 control-label" >Nome</label>
+                                <label for="dataNasc" class="col-sm-2 control-label" >CEP</label>
                                 <div class="col-sm-10">
-                                    <input name="nome" value="{{ old('nome') }}" type="text" class="form-control input-lg"
-                                           id="nome" placeholder="Nome do cliente" autofocus>
+                                    <input name="cep" value="{{ old('cep') }}" type="text" class="form-control input-lg"
+                                           id="cep" placeholder="cep do cliente" autofocus>
                                 </div>
                             </div>
 
 
                             <div class="form-group">
-                                <label for="dataNasc" class="col-sm-2 control-label" >Data Nascimento</label>
+                                <label for="nome" class="col-sm-2 control-label" >Endereco</label>
                                 <div class="col-sm-10">
-
-
-
-                                    <input placeholder="00/00/0000" name="dtnasc" value="{{ old('dtnasc') }}" type="text" class="form-control input-lg"
-                                           id="dtnasc">
+                                    <input name="endereco" value="{{ old('endereco') }}" type="text" class="form-control input-lg"
+                                           id="endereco" placeholder="Endereco do cliente" autofocus>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="email" class="col-sm-2 control-label" >Email</label>
+                                <label for="rg" class="col-sm-2 control-label" >Numero</label>
                                 <div class="col-sm-10">
-                                    <input name="email" value="{{ old('email') }}" type="email" class="form-control input-lg"
-                                           id="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                    <input name="numero" value="{{ old('numero') }}" type="text" class="form-control input-lg"
+                                           id="numero" placeholder="numero" autofocus>
                                 </div>
                             </div>
+
+
 
                             <div class="form-group">
-                                <label for="sexo" class="col-sm-2 control-label">Sexo</label>
+                                <label for="dataNasc" class="col-sm-2 control-label" >Bairro</label>
                                 <div class="col-sm-10">
-                                    <select name="sexo" id="sexo" class="form-control">
-
-                                            <option value="Masculino">Masculino</option>
-                                            <option value="Feminino">Feminino</option>
-
-                                    </select>
-
-
-
+                                    <input name="bairro" value="{{ old('bairro') }}" type="text" class="form-control input-lg"
+                                           id="bairro" placeholder="Bairro do cliente" autofocus>
                                 </div>
                             </div>
+
 
                             <div class="form-group">
-                                <label for="nome" class="col-sm-2 control-label" >CPF</label>
+                                <label for="nome" class="col-sm-2 control-label" >Complemento</label>
                                 <div class="col-sm-10">
-                                    <input name="cpf" value="{{ old('cpf') }}" type="text" class="form-control input-lg"
-                                           id="cpf" placeholder="CPF" autofocus>
+                                    <input name="complemento" value="{{ old('complemento') }}" type="text" class="form-control input-lg"
+                                           id="complemento" placeholder="complemento" autofocus>
                                 </div>
                             </div>
 
+
+
                             <div class="form-group">
-                                <label for="rg" class="col-sm-2 control-label" >RG</label>
+                                <label for="rg" class="col-sm-2 control-label" >Ponto de referencia</label>
                                 <div class="col-sm-10">
-                                    <input name="rg" value="{{ old('rg') }}" type="text" class="form-control input-lg"
-                                           id="rg" placeholder="rg" autofocus>
+                                    <input name="ponto_ref" value="{{ old('ponto_ref') }}" type="text" class="form-control input-lg"
+                                           id="ponto_ref" placeholder="ponto_ref" autofocus>
                                 </div>
                             </div>
+
 
 
 

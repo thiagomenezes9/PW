@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cliente;
+use App\Endereco;
 use App\Http\Requests\ClienteRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -68,8 +69,11 @@ class ClienteController extends Controller
     public function show($id)
     {
         $cliente = Cliente::findOrFail($id);
+        $endereco = $cliente->enderecos();
 
-        return view('Cliente.show',compact('cliente'));
+
+
+        return view('Cliente.show',compact('cliente','endereco'));
     }
 
     /**

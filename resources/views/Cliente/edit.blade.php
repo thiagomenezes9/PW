@@ -66,7 +66,7 @@
                             <div class="form-group">
                                 <label for="nome" class="col-sm-2 control-label" >Nome</label>
                                 <div class="col-sm-10">
-                                    <input name="nome" value="{{ old('nome') }}" type="text" class="form-control input-lg"
+                                    <input name="nome" value="{{$cliente->nome}}" type="text" class="form-control input-lg"
                                            id="nome" placeholder="Nome do cliente" autofocus>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                             <div class="form-group">
                                 <label for="dataNasc" class="col-sm-2 control-label" >Data Nascimento</label>
                                 <div class="col-sm-10">
-                                    <input placeholder="00/00/0000" name="dataNasc" value="{{ old('dataNasc') }}" type="text" class="form-control input-lg"
+                                    <input placeholder="00/00/0000" name="dataNasc" value="{{ $cliente->dtnasc->format('d/m/Y') }}" type="text" class="form-control input-lg"
                                            id="dataNasc">
                                 </div>
                             </div>
@@ -83,23 +83,28 @@
                             <div class="form-group">
                                 <label for="email" class="col-sm-2 control-label" >Email</label>
                                 <div class="col-sm-10">
-                                    <input name="email" value="{{ old('email') }}" type="email" class="form-control input-lg"
+                                    <input name="email" value="{{ $cliente->email }}" type="email" class="form-control input-lg"
                                            id="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="nome" class="col-sm-2 control-label" >Sexo</label>
+                                <label for="pais" class="col-sm-2 control-label">Estado</label>
                                 <div class="col-sm-10">
-                                    <input name="sexo" value="{{ old('sexo') }}" type="text" class="form-control input-lg"
-                                           id="soxe" placeholder="Informe o Sexo" autofocus>
+                                    <select name="sexo" id="sexo" class="form-control">
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Feminino">Feminino</option>
+
+
+                                    </select>
+
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="nome" class="col-sm-2 control-label" >CPF</label>
                                 <div class="col-sm-10">
-                                    <input name="cpf" value="{{ old('cpf') }}" type="text" class="form-control input-lg"
+                                    <input name="cpf" value="{{ $cliente->cpf }}" type="text" class="form-control input-lg"
                                            id="cpf" placeholder="CPF" autofocus>
                                 </div>
                             </div>
@@ -107,7 +112,7 @@
                             <div class="form-group">
                                 <label for="nome" class="col-sm-2 control-label" >RG</label>
                                 <div class="col-sm-10">
-                                    <input name="RG" value="{{ old('RG') }}" type="text" class="form-control input-lg"
+                                    <input name="RG" value="{{ $cliente->rg }}" type="text" class="form-control input-lg"
                                            id="RG" placeholder="RG" autofocus>
                                 </div>
                             </div>

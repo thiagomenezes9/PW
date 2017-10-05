@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Endereco;
+use App\Http\Requests\Cliente;
 use Illuminate\Http\Request;
 
 class EnderecoController extends Controller
@@ -22,9 +23,12 @@ class EnderecoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+
+        $cliente = Cliente::find($id);
+
+        return view('Endereco.create',compact('cliente'));
     }
 
     /**

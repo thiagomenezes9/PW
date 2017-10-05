@@ -71,8 +71,11 @@
                             <div class="form-group">
                                 <label for="dataNasc" class="col-sm-2 control-label" >Data Nascimento</label>
                                 <div class="col-sm-10">
-                                    <input placeholder="00/00/0000" name="dataNasc" value="<?php echo e(old('dataNasc')); ?>" type="text" class="form-control input-lg"
-                                           id="dataNasc">
+
+
+
+                                    <input placeholder="00/00/0000" name="dtnasc" value="<?php echo e(old('dtnasc')); ?>" type="text" class="form-control input-lg"
+                                           id="dtnasc">
                                 </div>
                             </div>
 
@@ -85,10 +88,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="nome" class="col-sm-2 control-label" >Sexo</label>
+                                <label for="sexo" class="col-sm-2 control-label">Sexo</label>
                                 <div class="col-sm-10">
-                                    <input name="sexo" value="<?php echo e(old('sexo')); ?>" type="text" class="form-control input-lg"
-                                           id="soxe" placeholder="Informe o Sexo" autofocus>
+                                    <select name="sexo" id="sexo" class="form-control">
+
+                                            <option value="Masculino">Masculino</option>
+                                            <option value="Feminino">Feminino</option>
+
+                                    </select>
+
+
+
                                 </div>
                             </div>
 
@@ -101,10 +111,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="nome" class="col-sm-2 control-label" >RG</label>
+                                <label for="rg" class="col-sm-2 control-label" >RG</label>
                                 <div class="col-sm-10">
-                                    <input name="RG" value="<?php echo e(old('RG')); ?>" type="text" class="form-control input-lg"
-                                           id="RG" placeholder="RG" autofocus>
+                                    <input name="rg" value="<?php echo e(old('rg')); ?>" type="text" class="form-control input-lg"
+                                           id="rg" placeholder="rg" autofocus>
                                 </div>
                             </div>
 

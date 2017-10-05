@@ -10,7 +10,12 @@ class Cliente extends Model
 
 
 
+    protected $dates = ['dtnasc'];
 
+
+    public function enderecos(){
+        return $this->hasMany('App\Endereco', 'cliente_id');
+    }
 
 
 }
