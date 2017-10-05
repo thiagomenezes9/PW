@@ -38,7 +38,7 @@
                         <p><strong>CPF : </strong> {{$cliente->cpf}}</p><br>
                         <p><strong>RG : </strong> {{$cliente->rg}}</p><br>
 
-                        <div align="right"><a href="{{route('enderecos.create',compact('cliente'))}}" class="btn btn-success">Cadastrar Endereço</a></div>
+                        <div align="right"><a href="{{route('EnderecoCriar',compact('cliente'))}}" class="btn btn-success">Cadastrar Endereço</a></div>
                         <p><strong>ENDEREÇOS</strong></p>
 
 

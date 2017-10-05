@@ -31,6 +31,13 @@ class EnderecoController extends Controller
         return view('Endereco.create',compact('cliente'));
     }
 
+
+    public function criar($cliente){
+
+
+        return view('Endereco.create',compact('cliente'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
