@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Endereco;
 use App\Http\Requests\Cliente;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Client;
 
 class EnderecoController extends Controller
 {
@@ -32,8 +33,9 @@ class EnderecoController extends Controller
     }
 
 
-    public function criar($cliente){
+    public function criar($id){
 
+        $cliente = \App\Cliente::findOrFail($id);
 
         return view('Endereco.create',compact('cliente'));
     }
@@ -46,7 +48,33 @@ class EnderecoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+//        ['cliente_id','endereco','cidade_id','cep','bairro','complemento','numero','ponto_ref']
+        $end = new Endereco();
+
+        $end->endereco = $request->endereco;
+        $end->cep = $request->cep;
+        $end->bairro = $request->bairro;
+        $end->complemento = $request->complemento;
+        $end->numero = $request->numero;
+        $end->ponto_ref = $request->ponto_ref;
+
+
+
+        $end->cidade_id = 1;
+
+        $cliente = \App\Cliente::findOrFail($request->cliente_id);
+
+        $end->clietes()->associate($cliente);
+
+        //$end->saveOrFail();
+
+
+       // $endereco = $cliente->enderecos();
+
+
+//        return route('clientes.show',compact('cliente','endereco'));
+        return redirect('clientes');
     }
 
     /**
@@ -89,8 +117,20 @@ class EnderecoController extends Controller
      * @param  \App\Endereco  $endereco
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Endereco $endereco)
+    public function destroy($id)
     {
-        //
+        $end = Endereco::findOrFail($id);
+
+        $cliente = $end->clientes();
+
+        $end->delete();
+
+
+        //  Session::flash('mensagem', 'Contato deletado com sucesso!');
+
+        $endereco = $cliente->enderecos();
+
+
+        return route('clientes.show',compact('cliente','endereco'));
     }
 }

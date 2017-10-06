@@ -73,6 +73,7 @@ class ClienteController extends Controller
 
 
 
+
         return view('Cliente.show',compact('cliente','endereco'));
     }
 

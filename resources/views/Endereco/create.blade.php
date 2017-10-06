@@ -48,7 +48,7 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <h3 class="box-title">Novo Endereço do {{$cliente->nome}}</h3>
-                        <div align="right"><a href="#" class="btn btn-info">Voltar</a></div>
+                        <div align="right"><a href="{{route('clientes.show',$cliente->id)}}" class="btn btn-info">Voltar</a></div>
                     </div>
 
                     <div class="box-body">
