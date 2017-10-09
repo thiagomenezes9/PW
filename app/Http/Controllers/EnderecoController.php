@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Endereco;
 use App\Http\Requests\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Symfony\Component\HttpKernel\Client;
 
 class EnderecoController extends Controller
@@ -67,14 +68,11 @@ class EnderecoController extends Controller
 
         $end->clietes()->associate($cliente);
 
-        //$end->saveOrFail();
+        $end->saveOrFail();
 
 
-       // $endereco = $cliente->enderecos();
+        return redirect()->route('clientes.show', $request->cliente_id);
 
-
-//        return route('clientes.show',compact('cliente','endereco'));
-        return redirect('clientes');
     }
 
     /**
