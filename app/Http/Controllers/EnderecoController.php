@@ -66,7 +66,7 @@ class EnderecoController extends Controller
 
         $cliente = \App\Cliente::findOrFail($request->cliente_id);
 
-        $end->clietes()->associate($cliente);
+        $end->clientes()->associate($cliente);
 
         $end->saveOrFail();
 
@@ -81,9 +81,11 @@ class EnderecoController extends Controller
      * @param  \App\Endereco  $endereco
      * @return \Illuminate\Http\Response
      */
-    public function show(Endereco $endereco)
+    public function show($id)
     {
-        //
+        $endereco = Endereco::findOrFail($id);
+
+        return view('Endereco.show',compact('endereco'));
     }
 
     /**
@@ -92,9 +94,11 @@ class EnderecoController extends Controller
      * @param  \App\Endereco  $endereco
      * @return \Illuminate\Http\Response
      */
-    public function edit(Endereco $endereco)
+    public function edit($id)
     {
-        //
+        $endereco = Endereco::findOrFail($id);
+
+        return view('Endereco.edit',compact('endereco'));
     }
 
     /**
@@ -104,9 +108,29 @@ class EnderecoController extends Controller
      * @param  \App\Endereco  $endereco
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Endereco $endereco)
+    public function update(Request $request, $id)
     {
-        //
+        $end = Endereco::findOrFail($id);
+
+        $end->endereco = $request->endereco;
+        $end->cep = $request->cep;
+        $end->bairro = $request->bairro;
+        $end->complemento = $request->complemento;
+        $end->numero = $request->numero;
+        $end->ponto_ref = $request->ponto_ref;
+
+
+
+        $end->cidade_id = 1;
+
+//        $cliente = \App\Cliente::findOrFail($request->cliente_id);
+//
+//        $end->clientes()->associate($cliente);
+
+        $end->saveOrFail();
+
+
+        return redirect()->route('clientes.show', $request->cliente_id);
     }
 
     /**
@@ -119,16 +143,12 @@ class EnderecoController extends Controller
     {
         $end = Endereco::findOrFail($id);
 
-        $cliente = $end->clientes();
+        $id = $end->clientes->id;
 
         $end->delete();
 
 
-        //  Session::flash('mensagem', 'Contato deletado com sucesso!');
 
-        $endereco = $cliente->enderecos();
-
-
-        return route('clientes.show',compact('cliente','endereco'));
+        return redirect()->route('clientes.show',$id);
     }
 }

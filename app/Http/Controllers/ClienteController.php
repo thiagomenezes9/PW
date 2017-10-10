@@ -69,16 +69,10 @@ class ClienteController extends Controller
     public function show($id)
     {
         $cliente = Cliente::findOrFail($id);
-        $endereco = $cliente->enderecos();
-
-        $endereco = Endereco::findOrFail($cliente->id);
-
-        foreach ($endereco as $e)
-
-        echo $e;
 
 
-        return view('Cliente.show',compact('cliente','endereco'));
+
+        return view('Cliente.show',compact('cliente'));
     }
 
     /**

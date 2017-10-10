@@ -52,17 +52,17 @@
 
 
                             <tbody>
-                            @foreach($endereco as $e)
+                            @foreach($cliente->enderecos as $e)
                                 <tr align="center">
                                     <td align="left">{{ $e->endereco }}</td>
 
                                     <td>
-                                        <a class="btn btn-small btn-info" href="#" >
+                                        <a class="btn btn-small btn-info" href="{{route('enderecos.show',$e->id)}}" >
                                             <i class="fa fa-search-plus"></i>
                                             Detalhes
                                         </a>
 
-                                        <a class="btn btn-small btn-warning" href="#" >
+                                        <a class="btn btn-small btn-warning" href="{{route('enderecos.edit',$e->id)}}" >
                                             <i class="fa fa-pencil-square-o"></i>
                                             Editar
                                         </a>
