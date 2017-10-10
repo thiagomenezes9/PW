@@ -130,7 +130,9 @@ class EnderecoController extends Controller
         $end->saveOrFail();
 
 
-        return redirect()->route('clientes.show', $request->cliente_id);
+        $id = $end->clientes->id;
+
+        return redirect()->route('clientes.show', $id);
     }
 
     /**

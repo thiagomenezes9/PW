@@ -47,20 +47,20 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Editar Endereço do {{$endereco->cliente->nome}}</h3>
-                        <div align="right"><a href="{{route('clientes.show',$endereco->cliente->id)}}" class="btn btn-info">Voltar</a></div>
+                        <h3 class="box-title">Editar Endereço do {{$endereco->clientes->nome}}</h3>
+                        <div align="right"><a href="{{route('clientes.show',$endereco->clientes->id)}}" class="btn btn-info">Voltar</a></div>
                     </div>
 
                     <div class="box-body">
 
-                        <form class="form-horizontal" action="{{action('EnderecoController@update')}}" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{route('enderecos.update',$endereco->id)}}" method="post" enctype="multipart/form-data">
 
 
 
                             <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
 
 
-                            <input type="hidden" name="cliente_id" value="{{$endereco->cliente->id}}"/>
+                            <input type="hidden" name="cliente_id" value="{{$endereco->clientes->id}}"/>
 
 
 

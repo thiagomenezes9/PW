@@ -22,9 +22,9 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Endereços do Cliente {{$endereco->cliente->nome}}</h3>
+                        <h3 class="box-title">Endereços do Cliente {{$endereco->clientes->nome}}</h3>
 
-                        <div align="right"><a href="{{route('clientes.show',$endereco->cliente->id)}}" class="btn btn-info">Voltar</a></div>
+                        <div align="right"><a href="{{route('clientes.show',$endereco->clientes->id)}}" class="btn btn-info">Voltar</a></div>
                         {{--<div align="right"><a href="{{route('pais.create')}}" class="btn btn-success">Novo</a></div>--}}
                     </div>
 
@@ -32,11 +32,11 @@
 
 
                         <p><strong><h2>Endereco : {{$endereco->endereco}}</h2></strong></p><br>
-                        <p><strong>Numero : {{$endereco->numero}}</strong></p><br>
-                        <p><strong>Bairro : {{$endereco->bairro}}</strong></p><br>
-                        <p><strong>Complemento : {{$endereco->complemento}}</strong></p><br>
-                        <p><strong>Ponto de Referencia : {{$endereco->ponto_ref}}</strong></p><br>
-                        <p><strong>CEP : {{$endereco->cep}}</strong></p><br>
+                        <p><strong>Numero : </strong>{{$endereco->numero}}</p><br>
+                        <p><strong>Bairro : </strong>{{$endereco->bairro}}</p><br>
+                        <p><strong>Complemento : </strong>{{$endereco->complemento}}</p><br>
+                        <p><strong>Ponto de Referencia : </strong>{{$endereco->ponto_ref}}</p><br>
+                        <p><strong>CEP : </strong>{{$endereco->cep}}</p><br>
 
                         <p>CIDADE</p>
 
