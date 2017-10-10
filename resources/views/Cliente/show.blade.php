@@ -22,7 +22,7 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Detalhes do Cliente tem endereco {{$endereco->endereco}}</h3>
+                        <h3 class="box-title">Detalhes do Cliente</h3>
 
                         <div align="right"><a href="{{route('clientes.index')}}" class="btn btn-info">Voltar</a></div>
                         {{--<div align="right"><a href="{{route('pais.create')}}" class="btn btn-success">Novo</a></div>--}}

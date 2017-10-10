@@ -10,7 +10,7 @@ class Endereco extends Model
 
 
 
-    public function clietes(){
+    public function clientes(){
         return $this->belongsTo('App\Cliente','cliente_id');
     }
 
