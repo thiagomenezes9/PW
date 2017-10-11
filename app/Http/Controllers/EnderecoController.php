@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Endereco;
 use App\Http\Requests\Cliente;
+use App\Pais;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Symfony\Component\HttpKernel\Client;
@@ -37,8 +38,9 @@ class EnderecoController extends Controller
     public function criar($id){
 
         $cliente = \App\Cliente::findOrFail($id);
+        $pais = Pais::all();
 
-        return view('Endereco.create',compact('cliente'));
+        return view('Endereco.create',compact('cliente','pais'));
     }
 
     /**

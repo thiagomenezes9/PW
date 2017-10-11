@@ -125,21 +125,33 @@
                             <div class="form-group">
                                 <label for="pais" class="col-sm-2 control-label" >Pais : </label>
                                 <div class="col-sm-10">
-                                    {{--select--}}
+                                    <select name="pais" id="pais" class="form-control">
+                                        @foreach($pais as $p)
+                                            <option value="{{$p->id}}">{{$p->nome}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="estados" class="col-sm-2 control-label" >Estados : </label>
                                 <div class="col-sm-10">
-                                    {{--select--}}
+                                    <select name="estados" id="estados" class="form-control">
+
+                                            <option>Selecione o pais</option>
+
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="cidades" class="col-sm-2 control-label" >Cidades : </label>
                                 <div class="col-sm-10">
-                                    {{--select--}}
+                                    <select name="cidades" id="cidades" class="form-control">
+
+                                            <option >Selecione o Estado</option>
+
+                                    </select>
                                 </div>
                             </div>
 
@@ -171,7 +183,7 @@
         $(document).ready(function () {
             $('#pais').click(function () {
                 $.ajax({
-                    url:'../listEstados/'+$('#pais').val(),
+                    url:'../../listEstados/'+$('#pais').val(),
                     type:'GET',
                     dataType:'json',
                     success: function (json) {
@@ -185,7 +197,7 @@
 
             $('#estados').click(function () {
                 $.ajax({
-                    url:'../listCidades/'+$('#estados').val(),
+                    url:'../../listCidades/'+$('#estados').val(),
                     type:'GET',
                     dataType:'json',
                     success: function (json) {
