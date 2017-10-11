@@ -65,19 +65,8 @@
 
 
 
-                            <p>Cidade</p>
-
                             <div class="form-group">
-                                <label for="dataNasc" class="col-sm-2 control-label" >CEP</label>
-                                <div class="col-sm-10">
-                                    <input name="cep" value="{{ old('cep') }}" type="text" class="form-control input-lg"
-                                           id="cep" placeholder="cep do cliente" autofocus>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="nome" class="col-sm-2 control-label" >Endereco</label>
+                                <label for="endereco" class="col-sm-2 control-label" >Endereco</label>
                                 <div class="col-sm-10">
                                     <input name="endereco" value="{{ old('endereco') }}" type="text" class="form-control input-lg"
                                            id="endereco" placeholder="Endereco do cliente" autofocus>
@@ -85,7 +74,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="rg" class="col-sm-2 control-label" >Numero</label>
+                                <label for="numero" class="col-sm-2 control-label" >Numero</label>
                                 <div class="col-sm-10">
                                     <input name="numero" value="{{ old('numero') }}" type="text" class="form-control input-lg"
                                            id="numero" placeholder="numero" autofocus>
@@ -95,7 +84,7 @@
 
 
                             <div class="form-group">
-                                <label for="dataNasc" class="col-sm-2 control-label" >Bairro</label>
+                                <label for="bairro" class="col-sm-2 control-label" >Bairro</label>
                                 <div class="col-sm-10">
                                     <input name="bairro" value="{{ old('bairro') }}" type="text" class="form-control input-lg"
                                            id="bairro" placeholder="Bairro do cliente" autofocus>
@@ -104,7 +93,7 @@
 
 
                             <div class="form-group">
-                                <label for="nome" class="col-sm-2 control-label" >Complemento</label>
+                                <label for="complemento" class="col-sm-2 control-label" >Complemento</label>
                                 <div class="col-sm-10">
                                     <input name="complemento" value="{{ old('complemento') }}" type="text" class="form-control input-lg"
                                            id="complemento" placeholder="complemento" autofocus>
@@ -122,6 +111,37 @@
                             </div>
 
 
+
+                            <div class="form-group">
+                                <label for="cep" class="col-sm-2 control-label" >CEP</label>
+                                <div class="col-sm-10">
+                                    <input name="cep" value="{{ old('cep') }}" type="text" class="form-control input-lg"
+                                           id="cep" placeholder="cep do cliente" autofocus>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="pais" class="col-sm-2 control-label" >Pais : </label>
+                                <div class="col-sm-10">
+                                    {{--select--}}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="estados" class="col-sm-2 control-label" >Estados : </label>
+                                <div class="col-sm-10">
+                                    {{--select--}}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cidades" class="col-sm-2 control-label" >Cidades : </label>
+                                <div class="col-sm-10">
+                                    {{--select--}}
+                                </div>
+                            </div>
 
 
                             <div class="box-footer">
