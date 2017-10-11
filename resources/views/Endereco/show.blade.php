@@ -38,7 +38,9 @@
                         <p><strong>Ponto de Referencia : </strong>{{$endereco->ponto_ref}}</p><br>
                         <p><strong>CEP : </strong>{{$endereco->cep}}</p><br>
 
-                        <p>CIDADE</p>
+                        <p><strong>Pais : </strong>{{$endereco->cidades->estado->pais->nome}}</p>
+                        <p><strong>Estado : </strong>{{$endereco->cidades->estado->nome}}</p>
+                        <p><strong>Cidade : </strong>{{$endereco->cidades->nome}}</p>
 
                     </div>
                 </div>

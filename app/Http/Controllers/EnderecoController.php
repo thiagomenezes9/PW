@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Cidade;
 use App\Endereco;
 use App\Http\Requests\Cliente;
+use App\Http\Requests\EnderecoRequest;
 use App\Pais;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
@@ -49,7 +51,7 @@ class EnderecoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EnderecoRequest $request)
     {
 
 //        ['cliente_id','endereco','cidade_id','cep','bairro','complemento','numero','ponto_ref']
@@ -64,7 +66,9 @@ class EnderecoController extends Controller
 
 
 
-        $end->cidade_id = 1;
+        $cidade = Cidade::findOrFail($request->cidades);
+
+        $end->cidades()->associate($cidade);
 
         $cliente = \App\Cliente::findOrFail($request->cliente_id);
 
@@ -123,11 +127,11 @@ class EnderecoController extends Controller
 
 
 
-        $end->cidade_id = 1;
+        $cidade = Cidade::findOrFail($request->cidades);
 
-//        $cliente = \App\Cliente::findOrFail($request->cliente_id);
-//
-//        $end->clientes()->associate($cliente);
+        $end->cidades()->associate($cidade);
+
+
 
         $end->saveOrFail();
 

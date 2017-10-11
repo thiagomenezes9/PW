@@ -6,14 +6,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class EnderecoRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +19,30 @@ class EnderecoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'endereco' => 'required|max:255',
+
+            'numero' => 'required|integer',
+            'bairro' => 'required',
+            'cep' => 'required',
+
+
+
+        ];
+    }
+
+    public function messages(){
+        return [
+
+
+            'endereco.required' => 'Endereço e obrigatorio',
+            'endereco.max' =>'Tamanho maximo 255 caracters',
+
+            'numero.required' => 'Numero e obrigatorio',
+            'bairro.required' => 'Bairro e obrigatorio',
+            'cep.required' => 'CEP e obrigatorio',
+            'numero.integer' => 'Numero deve ser inteiro'
+
+
         ];
     }
 }

@@ -16,7 +16,7 @@ class AjaxController extends Controller
 
     public function listCidades($id)
     {
-        $cidades = Cidade::select('id', 'nome')->where('estado_id','=',$id)->get();
+        $cidades = Cidade::select('id', 'nome')->where('estados_id','=',$id)->get();
         return response()->json(json_encode($cidades));
     }
 }

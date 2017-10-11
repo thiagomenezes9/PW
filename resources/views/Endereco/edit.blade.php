@@ -65,19 +65,8 @@
 
 
 
-                            <p>Cidade</p>
-
                             <div class="form-group">
-                                <label for="dataNasc" class="col-sm-2 control-label" >CEP</label>
-                                <div class="col-sm-10">
-                                    <input name="cep" value="{{ $endereco->cep }}" type="text" class="form-control input-lg"
-                                           id="cep" placeholder="cep do cliente" autofocus>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="nome" class="col-sm-2 control-label" >Endereco</label>
+                                <label for="endereco" class="col-sm-2 control-label" >Endereco</label>
                                 <div class="col-sm-10">
                                     <input name="endereco" value="{{ $endereco->endereco }}" type="text" class="form-control input-lg"
                                            id="endereco" placeholder="Endereco do cliente" autofocus>
@@ -85,7 +74,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="rg" class="col-sm-2 control-label" >Numero</label>
+                                <label for="numero" class="col-sm-2 control-label" >Numero</label>
                                 <div class="col-sm-10">
                                     <input name="numero" value="{{ $endereco->numero }}" type="text" class="form-control input-lg"
                                            id="numero" placeholder="numero" autofocus>
@@ -95,7 +84,7 @@
 
 
                             <div class="form-group">
-                                <label for="dataNasc" class="col-sm-2 control-label" >Bairro</label>
+                                <label for="bairro" class="col-sm-2 control-label" >Bairro</label>
                                 <div class="col-sm-10">
                                     <input name="bairro" value="{{ $endereco->bairro }}" type="text" class="form-control input-lg"
                                            id="bairro" placeholder="Bairro do cliente" autofocus>
@@ -104,7 +93,7 @@
 
 
                             <div class="form-group">
-                                <label for="nome" class="col-sm-2 control-label" >Complemento</label>
+                                <label for="complemento" class="col-sm-2 control-label" >Complemento</label>
                                 <div class="col-sm-10">
                                     <input name="complemento" value="{{ $endereco->complemento }}" type="text" class="form-control input-lg"
                                            id="complemento" placeholder="complemento" autofocus>
@@ -121,6 +110,50 @@
                                 </div>
                             </div>
 
+
+
+                            <div class="form-group">
+                                <label for="cep" class="col-sm-2 control-label" >CEP</label>
+                                <div class="col-sm-10">
+                                    <input name="cep" value="{{ $endereco->cep }}" type="text" class="form-control input-lg"
+                                           id="cep" placeholder="cep do cliente" autofocus>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="pais" class="col-sm-2 control-label" >Pais : </label>
+                                <div class="col-sm-10">
+                                    <select name="pais" id="pais" class="form-control">
+
+                                        <option>Selecione o pais</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="estados" class="col-sm-2 control-label" >Estados : </label>
+                                <div class="col-sm-10">
+                                    <select name="estados" id="estados" class="form-control">
+
+                                        <option>Selecione o pais</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cidades" class="col-sm-2 control-label" >Cidades : </label>
+                                <div class="col-sm-10">
+                                    <select name="cidades" id="cidades" class="form-control">
+
+                                        <option >Selecione o Estado</option>
+
+                                    </select>
+                                </div>
+                            </div>
 
 
 

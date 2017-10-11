@@ -126,6 +126,7 @@
                                 <label for="pais" class="col-sm-2 control-label" >Pais : </label>
                                 <div class="col-sm-10">
                                     <select name="pais" id="pais" class="form-control">
+                                        <option id="paisOp">Selecione o pais</option>
                                         @foreach($pais as $p)
                                             <option value="{{$p->id}}">{{$p->nome}}</option>
                                         @endforeach
@@ -188,6 +189,7 @@
                     dataType:'json',
                     success: function (json) {
                         $('#estados').find('option').remove();
+                        $('#pais').find('#paisOp').remove();
                         $.each(JSON.parse(json), function (i, obj) {
                             $('#estados').append($('<option>').text(obj.nome).attr('value', obj.id));
                         })
