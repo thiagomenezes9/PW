@@ -27,6 +27,10 @@ Route::group(['middleware' => 'auth'], function () {
 //    Route::post('endereco/create/{$id}','EnderecoController@criar')->name('EnderecoCriar');
 
 
+    Route::get('listEstados/{id}', 'AjaxController@listEstados');
+    Route::get('listCidades/{id}', 'AjaxController@listCidades');
+
+
     Route::resource('pais','PaisController');
     Route::resource('estados','EstadoController');
     Route::resource('cidades','CidadeController');

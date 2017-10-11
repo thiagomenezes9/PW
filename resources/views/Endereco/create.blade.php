@@ -144,3 +144,38 @@
     </div>
 
 @endsection
+
+
+@section('scriptlocal')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#pais').click(function () {
+                $.ajax({
+                    url:'../listEstados/'+$('#pais').val(),
+                    type:'GET',
+                    dataType:'json',
+                    success: function (json) {
+                        $('#estados').find('option').remove();
+                        $.each(JSON.parse(json), function (i, obj) {
+                            $('#estados').append($('<option>').text(obj.nome).attr('value', obj.id));
+                        })
+                    }
+                })
+            })
+
+            $('#estados').click(function () {
+                $.ajax({
+                    url:'../listCidades/'+$('#estados').val(),
+                    type:'GET',
+                    dataType:'json',
+                    success: function (json) {
+                        $('#cidades').find('option').remove();
+                        $.each(JSON.parse(json), function (i, obj) {
+                            $('#cidades').append($('<option>').text(obj.nome).attr('value', obj.id));
+                        })
+                    }
+                })
+            })
+        })
+    </script>
+@endsection
