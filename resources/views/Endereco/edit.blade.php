@@ -127,7 +127,9 @@
                                 <div class="col-sm-10">
                                     <select name="pais" id="pais" class="form-control">
 
-                                        <option>Selecione o pais</option>
+                                        @foreach($pais as $p)
+                                            <option value="{{$p->id}}" {{ $p->id === (isset($endereco->cidades->estado->pais->pais_id) ? $endereco->cidades->estado->pais->pais_id : '' ) ? 'selected' : '' }}>{{$p->nome}}</option>
+                                        @endforeach
 
                                     </select>
                                 </div>
@@ -138,7 +140,9 @@
                                 <div class="col-sm-10">
                                     <select name="estados" id="estados" class="form-control">
 
-                                        <option>Selecione o pais</option>
+                                        @foreach($estados as $e)
+                                            <option value="{{$e->id}}" {{ $e->id === (isset($endereco->cidades->estado->estado_id) ? $endereco->cidades->estado->estado_id : '' ) ? 'selected' : '' }}>{{$e->nome}}</option>
+                                        @endforeach
 
                                     </select>
                                 </div>
@@ -149,7 +153,9 @@
                                 <div class="col-sm-10">
                                     <select name="cidades" id="cidades" class="form-control">
 
-                                        <option >Selecione o Estado</option>
+                                        @foreach($cidades as $c)
+                                            <option value="{{$c->id}}" {{ $c->id === (isset($endereco->cidades->cidade_id) ? $endereco->cidades->cidade_id : '' ) ? 'selected' : '' }}>{{$c->nome}}</option>
+                                        @endforeach
 
                                     </select>
                                 </div>
@@ -176,4 +182,41 @@
         </div>
     </div>
 
+@endsection
+
+
+
+@section('scriptlocal')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#pais').click(function () {
+                $.ajax({
+                    url:'../../listEstados/'+$('#pais').val(),
+                    type:'GET',
+                    dataType:'json',
+                    success: function (json) {
+                        $('#estados').find('option').remove();
+                        $('#pais').find('#paisOp').remove();
+                        $.each(JSON.parse(json), function (i, obj) {
+                            $('#estados').append($('<option>').text(obj.nome).attr('value', obj.id));
+                        })
+                    }
+                })
+            })
+
+            $('#estados').click(function () {
+                $.ajax({
+                    url:'../../listCidades/'+$('#estados').val(),
+                    type:'GET',
+                    dataType:'json',
+                    success: function (json) {
+                        $('#cidades').find('option').remove();
+                        $.each(JSON.parse(json), function (i, obj) {
+                            $('#cidades').append($('<option>').text(obj.nome).attr('value', obj.id));
+                        })
+                    }
+                })
+            })
+        })
+    </script>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cidade;
 use App\Endereco;
+use App\Estado;
 use App\Http\Requests\Cliente;
 use App\Http\Requests\EnderecoRequest;
 use App\Pais;
@@ -103,8 +104,11 @@ class EnderecoController extends Controller
     public function edit($id)
     {
         $endereco = Endereco::findOrFail($id);
+        $pais = Pais::all();
+        $estados = Estado::all();
+        $cidades = Cidade::all();
 
-        return view('Endereco.edit',compact('endereco'));
+        return view('Endereco.edit',compact('endereco','pais','estados','cidades'));
     }
 
     /**
