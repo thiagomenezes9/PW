@@ -189,6 +189,7 @@
                     dataType:'json',
                     success: function (json) {
                         $('#estados').find('option').remove();
+                        $('#cidades').find('option').remove();
                         $('#estados').removeAttr('disabled');
                         $('#pais').find('#paisOp').remove();
                         $.each(JSON.parse(json), function (i, obj) {
