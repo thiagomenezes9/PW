@@ -24,6 +24,7 @@ class EnderecoRequest extends FormRequest
             'numero' => 'required|integer',
             'bairro' => 'required',
             'cep' => 'required',
+            'cidades'=>'required'
 
 
 
@@ -40,7 +41,8 @@ class EnderecoRequest extends FormRequest
             'numero.required' => 'Numero e obrigatorio',
             'bairro.required' => 'Bairro e obrigatorio',
             'cep.required' => 'CEP e obrigatorio',
-            'numero.integer' => 'Numero deve ser inteiro'
+            'numero.integer' => 'Numero deve ser inteiro',
+            'cidades.required' => 'cidade seleção obrigatorio'
 
 
         ];
