@@ -53,7 +53,7 @@
 
                     <div class="box-body">
 
-                        <form class="form-horizontal" action="{{route('enderecos.update',$endereco->id)}}" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal" action="{{route('EnderecoAtualiza',$endereco->id)}}" method="post" enctype="multipart/form-data">
 
 
 
@@ -126,9 +126,10 @@
                                 <label for="pais" class="col-sm-2 control-label" >Pais : </label>
                                 <div class="col-sm-10">
                                     <select name="pais" id="pais" class="form-control">
-
+                                        <option id="paisOp" value="0">Pais atual: {{$endereco->cidades->estado->pais->nome}}</option>
                                         @foreach($pais as $p)
-                                            <option value="{{$p->id}}" {{ $p->id === (isset($endereco->cidades->estado->pais->pais_id) ? $endereco->cidades->estado->pais->pais_id : '' ) ? 'selected' : '' }}>{{$p->nome}}</option>
+                                            {{--<option value="{{$p->id}}" {{ $p->id === (isset($endereco->cidades->estado->pais->pais_id) ? $endereco->cidades->estado->pais->pais_id : '' ) ? 'selected' : '' }}>{{$p->nome}}</option>--}}
+                                            <option value="{{$p->id}}">{{$p->nome}}</option>
                                         @endforeach
 
                                     </select>
@@ -139,10 +140,10 @@
                                 <label for="estados" class="col-sm-2 control-label" >Estados : </label>
                                 <div class="col-sm-10">
                                     <select name="estados" id="estados" class="form-control" disabled>
-
-                                        @foreach($estados as $e)
-                                            <option value="{{$e->id}}" {{ $e->id === (isset($endereco->cidades->estado->estado_id) ? $endereco->cidades->estado->estado_id : '' ) ? 'selected' : '' }}>{{$e->nome}}</option>
-                                        @endforeach
+                                        <option id="estadoOp" value="0">Estado atual: {{$endereco->cidades->estado->nome}}</option>
+                                        {{--@foreach($estados as $e)--}}
+                                            {{--<option value="{{$e->id}}" {{ $e->id === (isset($endereco->cidades->estado->estado_id) ? $endereco->cidades->estado->estado_id : '' ) ? 'selected' : '' }}>{{$e->nome}}</option>--}}
+                                        {{--@endforeach--}}
 
                                     </select>
                                 </div>
@@ -152,10 +153,11 @@
                                 <label for="cidades" class="col-sm-2 control-label" >Cidades : </label>
                                 <div class="col-sm-10">
                                     <select name="cidades" id="cidades" class="form-control" disabled>
+                                        <option id="CidadeOp" value="0">Cidade atual: {{$endereco->cidades->nome}}</option>
 
-                                        @foreach($cidades as $c)
-                                            <option value="{{$c->id}}" {{ $c->id === (isset($endereco->cidades->cidade_id) ? $endereco->cidades->cidade_id : '' ) ? 'selected' : '' }}>{{$c->nome}}</option>
-                                        @endforeach
+                                        {{--@foreach($cidades as $c)--}}
+                                            {{--<option value="{{$c->id}}" {{ $c->id === (isset($endereco->cidades->cidade_id) ? $endereco->cidades->cidade_id : '' ) ? 'selected' : '' }}>{{$c->nome}}</option>--}}
+                                        {{--@endforeach--}}
 
                                     </select>
                                 </div>
@@ -201,6 +203,7 @@
                         $('#estados').find('option').remove();
                         $('#estados').removeAttr('disabled');
                         $('#pais').find('#paisOp').remove();
+                        $('#estados').find('#estadoOp').remove();
                         $.each(JSON.parse(json), function (i, obj) {
                             $('#estados').append($('<option>').text(obj.nome).attr('value', obj.id));
                         })
@@ -216,7 +219,7 @@
                     success: function (json) {
                         $('#cidades').find('option').remove();
                         $('#cidades').removeAttr('disabled');
-
+                        $('#cidades').find('#cidadeOp').remove();
                         $.each(JSON.parse(json), function (i, obj) {
                             $('#cidades').append($('<option>').text(obj.nome).attr('value', obj.id));
                         })
@@ -224,5 +227,13 @@
                 })
             })
         })
+
+
+        $("form").submit(function(){
+            $('#estados').removeAttr('disabled');
+            $('#cidades').removeAttr('disabled');
+        });
+
+
     </script>
 @endsection

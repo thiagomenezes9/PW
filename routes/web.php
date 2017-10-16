@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth'], function () {
     #adminlte_routes
 
     Route::get('endereco/create/{id}','EnderecoController@criar')->name('EnderecoCriar');
+    Route::post('endereco/atualiza/{id}','EnderecoController@atualiza')->name('EnderecoAtualiza');
 //    Route::post('endereco/create/{$id}','EnderecoController@criar')->name('EnderecoCriar');
 
 

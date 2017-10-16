@@ -46,6 +46,33 @@ class EnderecoController extends Controller
         return view('Endereco.create',compact('cliente','pais'));
     }
 
+
+    public function atualiza(Request $request, $id){
+        $end = Endereco::findOrFail($id);
+
+        $end->endereco = $request->endereco;
+        $end->cep = $request->cep;
+        $end->bairro = $request->bairro;
+        $end->complemento = $request->complemento;
+        $end->numero = $request->numero;
+        $end->ponto_ref = $request->ponto_ref;
+
+
+        if($request->cidades != 0){
+            $cidade = Cidade::findOrFail($request->cidades);
+
+            $end->cidades()->associate($cidade);
+        }
+
+
+        $end->saveOrFail();
+
+
+        $id = $end->clientes->id;
+
+        return redirect()->route('clientes.show', $id);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -120,29 +147,34 @@ class EnderecoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $end = Endereco::findOrFail($id);
-
-        $end->endereco = $request->endereco;
-        $end->cep = $request->cep;
-        $end->bairro = $request->bairro;
-        $end->complemento = $request->complemento;
-        $end->numero = $request->numero;
-        $end->ponto_ref = $request->ponto_ref;
 
 
-
-        $cidade = Cidade::findOrFail($request->cidades);
-
-        $end->cidades()->associate($cidade);
+        echo "Entrou";
 
 
-
-        $end->saveOrFail();
-
-
-        $id = $end->clientes->id;
-
-        return redirect()->route('clientes.show', $id);
+//        $end = Endereco::findOrFail($id);
+//
+//        $end->endereco = $request->endereco;
+//        $end->cep = $request->cep;
+//        $end->bairro = $request->bairro;
+//        $end->complemento = $request->complemento;
+//        $end->numero = $request->numero;
+//        $end->ponto_ref = $request->ponto_ref;
+//
+//
+//
+//        $cidade = Cidade::findOrFail($request->cidades);
+//
+//        $end->cidades()->associate($cidade);
+//
+//
+//
+//        $end->saveOrFail();
+//
+//
+//        $id = $end->clientes->id;
+//
+//        return redirect()->route('clientes.show', $id);
     }
 
     /**
