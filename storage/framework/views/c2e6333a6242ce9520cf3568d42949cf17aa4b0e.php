@@ -22,7 +22,8 @@
 						</div>
 					</div>
 					<div class="box-body">
-						<?php echo e(trans('adminlte_lang::message.logged')); ?>. Start creating your amazing application!
+						<?php echo e(trans('adminlte_lang::message.logged')); ?>
+
 					</div>
 					<!-- /.box-body -->
 				</div>

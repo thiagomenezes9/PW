@@ -137,7 +137,7 @@
                             <div class="form-group">
                                 <label for="estados" class="col-sm-2 control-label" >Estados : </label>
                                 <div class="col-sm-10">
-                                    <select name="estados" id="estados" class="form-control">
+                                    <select name="estados" id="estados" class="form-control" disabled>
 
                                             <option>Selecione o pais</option>
 
@@ -148,7 +148,7 @@
                             <div class="form-group">
                                 <label for="cidades" class="col-sm-2 control-label" >Cidades : </label>
                                 <div class="col-sm-10">
-                                    <select name="cidades" id="cidades" class="form-control">
+                                    <select name="cidades" id="cidades" class="form-control" disabled>
 
                                             <option >Selecione o Estado</option>
 
@@ -189,6 +189,7 @@
                     dataType:'json',
                     success: function (json) {
                         $('#estados').find('option').remove();
+                        $('#estados').removeAttr('disabled');
                         $('#pais').find('#paisOp').remove();
                         $.each(JSON.parse(json), function (i, obj) {
                             $('#estados').append($('<option>').text(obj.nome).attr('value', obj.id));
@@ -204,6 +205,7 @@
                     dataType:'json',
                     success: function (json) {
                         $('#cidades').find('option').remove();
+                        $('#cidades').removeAttr('disabled');
                         $.each(JSON.parse(json), function (i, obj) {
                             $('#cidades').append($('<option>').text(obj.nome).attr('value', obj.id));
                         })
