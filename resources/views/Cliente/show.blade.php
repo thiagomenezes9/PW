@@ -32,7 +32,7 @@
 
 
                         <p><strong><h2>Nome : {{$cliente->nome}}</h2></strong></p><br>
-                        <p><strong>Data nascimento : </strong> {{$cliente->dtnasc->format('d/m/Y')}}</p><br>
+                        <p><strong>Data nascimento : </strong> {{$cliente->dtnasc}}</p><br>
                         <p><strong>Email : </strong> {{$cliente->email}}</p><br>
                         <p><strong>Sexo : </strong> {{$cliente->sexo}}</p><br>
                         <p><strong>CPF : </strong> {{$cliente->cpf}}</p><br>

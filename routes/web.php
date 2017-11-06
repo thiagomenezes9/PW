@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('estados','EstadoController');
     Route::resource('cidades','CidadeController');
     Route::resource('clientes','ClienteController');
+    //Route::resource('enderecos','EnderecoController', ['except' => ['create', 'index']]);
     Route::resource('enderecos','EnderecoController');
 
 
